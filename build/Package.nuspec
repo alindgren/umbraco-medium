@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UmbracoMedium</id>
+    <version>$version$</version>
+	<title>UmbracoMedium</title>
+    <authors>Alex Lindgren</authors>
+    <owners>Alex Lindgren</owners>
+    <licenseUrl>https://github.com/alindgren/umbraco-medium/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/alindgren/umbraco-medium</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A package which allows editors to post content to Medium.com.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>umbraco medium</tags>
+    <dependencies>
+      <dependency id="UmbracoCms.Core" version="7.5.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\UmbracoMedium\bin\Release\UmbracoMedium.dll" target="lib\net45" />
+    <file src="..\src\UmbracoMedium\bin\Release\UmbracoMedium.pdb" target="lib\net45" />
+	<file src="..\src\UmbracoMedium\Web\App_Plugins\\UmbracoMedium\**\*" target="content\App_Plugins\UmbracoMedium" />
+  </files>
+</package>
