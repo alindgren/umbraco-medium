@@ -1,0 +1,35 @@
+<div ng-controller="Medium.Dialog">
+    <div class="umb-dialog-body form-horizontal">
+        <div class="umb-pane">
+            <p class="abstract" ng-show="MediumDialogModel.Status == 'ok'">
+                Post <strong>{{currentNode.name}}</strong> to Medium.
+            </p>
+            <p class="abstract" ng-show="MediumDialogModel.Status == 'ok'">
+                Connected to Medium as <a style="text-decoration: underline" href="{{ MediumDialogModel.UserUrl }}" target="_blank">{{ MediumDialogModel.Name }}</a>.
+            </p>
+            <div class="alert alert-error" ng-show="MediumDialogModel.ErrorMessage">
+                <p style="font-weight:bold">{{MediumDialogModel.ErrorMessage}}</p>
+                <p>Visit <a style="text-decoration: underline" href="https://github.com/alindgren/umbraco-medium" target="_blank">https://github.com/alindgren/umbraco-medium</a> for help.</p>
+            </div>
+
+            <div class="alert" ng-show="MediumDialogModel.Status == 'no_token'">
+                You must first authenticate with Medium.
+            </div>
+            <div class="alert" ng-show="MediumDialogModel.Status == 'posted'">
+                <strong>{{currentNode.name}}</strong> has been posted to Medium.<br />
+                URL: <a href="{{ MediumDialogModel.MediumPostUrl }}" target="_blank">{{ MediumDialogModel.MediumPostUrl }}</a>
+            </div>
+
+
+            <div class="umb-loader-wrapper" ng-show="busy">
+                <div class="umb-loader"></div>
+            </div>
+        </div>
+    </div>
+    <div class="umb-dialog-footer btn-toolbar umb-btn-toolbar">
+        <a class="btn btn-link" ng-click="nav.hideDialog()" ng-show="MediumDialogModel.Status != 'posted'">Cancel</a>
+        <a class="btn btn-link" ng-click="nav.hideDialog()" ng-show="MediumDialogModel.Status == 'posted'">Close</a>
+        <button class="btn btn-primary" ng-click="authenticateWithMedium()" ng-show="MediumDialogModel.Status == 'no_token'">Connect with Medium</button>
+        <button class="btn btn-primary" ng-click="postToMedium()"  ng-show="MediumDialogModel.Status == 'ok'">Post to Medium</button>
+    </div>
+</div>
