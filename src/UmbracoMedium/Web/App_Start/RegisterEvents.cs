@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Umbraco.Core;
 using Umbraco.Web.Trees;
 using Umbraco.Web.Models.Trees;
@@ -22,7 +19,7 @@ public class RegisterEvents : ApplicationEventHandler
         // note: should use Umbraco.Core.Configuration.GlobalSettings.UmbracoMvcArea but it was inaccesible. See https://github.com/umbraco/UmbracoDocs/pull/367#issuecomment-240121475
         RouteTable.Routes.MapRoute(
           name: "PostToMedium",
-          url: "umbraco/backoffice/PostToMedium/{MediumAuthorization}/{action}",
+          url: "umbraco/backoffice/UmbracoMedium/{MediumAuthorization}/{action}",
           defaults: new
           {
               controller = "MediumAuthorization",
@@ -51,7 +48,7 @@ public class RegisterEvents : ApplicationEventHandler
             if (node.ContentType.Alias == "ArticulateMarkdown" || node.ContentType.Alias == "ArticulateRichText")
             {
                 var m = new MenuItem("postToMedium", "Post to Medium");
-                m.AdditionalData.Add("actionView", "/App_Plugins/PostToMedium/postToMedium.html");
+                m.AdditionalData.Add("actionView", "/App_Plugins/UmbracoMedium/views/postToMedium.html");
                 //m.AdditionalData.Add("test", "additionalData");
                 m.Icon = "umb-content";
                 e.Menu.Items.Add(m);

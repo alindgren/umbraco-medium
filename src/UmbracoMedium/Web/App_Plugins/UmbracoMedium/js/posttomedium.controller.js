@@ -5,7 +5,7 @@ function mediumDialogController($scope, $routeParams, $http, contentResource) {
 
     // var url = Umbraco.Sys.ServerVariables["articulate"]["articulatePropertyEditorsBaseUrl"] + "GetThemes"; See https://our.umbraco.org/documentation/extending/version7-assets
     $scope.busy = true;
-    $http.get('/umbraco/backoffice/PostToMedium/PostToMediumApi/InitDialog').success(function (data) {
+    $http.get('/umbraco/backoffice/UmbracoMedium/PostToMediumApi/InitDialog').success(function (data) {
         console.log(data);
         $scope.MediumDialogModel = data;
         $scope.busy = false;
@@ -21,7 +21,7 @@ function mediumDialogController($scope, $routeParams, $http, contentResource) {
 
     $scope.postToMedium = function () {
         $scope.busy = true;
-        $http.get('/umbraco/backoffice/PostToMedium/PostToMediumApi/PostToMedium?nodeId=' + node.id).success(function (data) {
+        $http.get('/umbraco/backoffice/UmbracoMedium/PostToMediumApi/PostToMedium?nodeId=' + node.id).success(function (data) {
             console.log(data);
             $scope.MediumDialogModel = data;
             $scope.busy = false;
