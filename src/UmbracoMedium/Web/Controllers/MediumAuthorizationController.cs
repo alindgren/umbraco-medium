@@ -21,7 +21,7 @@ public class MediumAuthorizationController : UmbracoAuthorizedController
 
     public ActionResult AuthCallback()
     {
-        //http://localhost:50437/umbraco/backoffice/PostToMedium/MediumAuthorization?state=secretstate&code=87ed2dcbf725
+        //http://localhost:50437/umbraco/backoffice/UmbracoMedium/MediumAuthorization?state=secretstate&code=87ed2dcbf725
 
         // check error for access denied
         string error = Request.Params["error"];
@@ -63,13 +63,13 @@ public class MediumAuthorizationController : UmbracoAuthorizedController
                 db.Update(userToken);
             }
 
-            return View("~/App_Plugins/PostToMedium/AuthCallback.cshtml");
+            return View("~/App_Plugins/UmbracoMedium/AuthCallback.cshtml");
         } else
         {
             // handle no code and no error?
         }
 
-        return View("~/App_Plugins/PostToMedium/AuthCallback.cshtml");
+        return View("~/App_Plugins/UmbracoMedium/AuthCallback.cshtml");
 
     }
 }
