@@ -27,7 +27,7 @@ public class MediumAuthorizationController : UmbracoAuthorizedController
         string error = Request.Params["error"];
         if (!string.IsNullOrEmpty(error))
         {
-            return View("~/App_Plugins/PostToMedium/AuthCallback.cshtml");
+            return View("~/App_Plugins/UmbracoMedium/AuthCallback.cshtml");
         }
 
         // check secret state
